@@ -11,7 +11,7 @@ def parse_and_write_csv(yaml_file_path, csv_file_path):
     with open(csv_file_path, mode='w', newline='') as file:
         writer = csv.writer(file)
         # Write the header row
-        writer.writerow(['ID', 'Consumed By', 'Value'])
+        writer.writerow(['ID', 'Consumed By'])
 
         # Process each resource in the YAML data
         for resource in data['information_resources']:
@@ -20,7 +20,7 @@ def parse_and_write_csv(yaml_file_path, csv_file_path):
             if 'consumed_by' in resource:
                 # Write each consumed_by entry as a new row
                 for consumed_by in resource['consumed_by']:
-                    writer.writerow([resource_id, consumed_by, '1'])
+                    writer.writerow([resource_id, consumed_by])
 
     print(f"CSV file created at {csv_file_path}")
 

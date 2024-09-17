@@ -26,12 +26,13 @@ fig = go.Figure(data=[go.Sankey(
       thickness=20,
       line=dict(color="black", width=0.5),
       label=all_nodes,
-      color="blue"
+      color="blue",
+      align="left"
     ),
     link=dict(
       source=source_indices,
       target=target_indices,
-      value=data['Value']
+      value=data['path_count']
     ))])
 
 fig.update_layout(title_text="Sankey Diagram", font_size=10,
